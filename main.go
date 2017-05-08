@@ -50,7 +50,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.ImageMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage("http://wallpaper-gallery.net/images/image/image-13.jpg", "photoMsg")).Do(); err != nil {
-					log.Print("Photo message1")
+					log.Print("Photo message1========")
+					log.Print(err)
+					log.Print("======================")
 				}
 			case *linebot.TextMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do(); err != nil {
