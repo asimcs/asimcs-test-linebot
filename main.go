@@ -51,14 +51,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.ImageMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage("https://buzzorange.com/techorange/wp-content/uploads/sites/2/2017/05/001-1.jpg", "https://buzzorange.com/techorange/wp-content/uploads/sites/2/2017/05/001-1.jpg")).Do(); err != nil {
 					//if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("Got a photo message")).Do(); err != nil {
-					log.Print("Photo message1========")
+					log.Print("========Photo message error========")
 					log.Print(err)
 					log.Print("======================")
 				}
 			case *linebot.TextMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do(); err != nil {
+					log.Print("========Text message error========")
 					log.Print(err)
-					log.Print("Text Message1")
+					log.Print("======================")
 				}
 
 			}
