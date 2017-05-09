@@ -56,6 +56,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Print("======================")
 				}
 			case *linebot.TextMessage:
+				log.Print("aaa " + message.Text + ",,,")
 				if message.Text == "baby" {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("https://www.dropbox.com/home/Apps/vertical-timeline")).Do()
 				}
