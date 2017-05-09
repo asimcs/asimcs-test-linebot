@@ -60,11 +60,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if message.Text == "baby" {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("https://www.dropbox.com/home/Apps/vertical-timeline")).Do()
 				}
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do(); err != nil {
-					log.Print("========Text message error========")
-					log.Print(err)
-					log.Print("======================")
-				}
+				/*
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do(); err != nil {
+						log.Print("========Text message error========")
+						log.Print(err)
+						log.Print("======================")
+					}
+				*/
 
 			}
 		}
