@@ -56,6 +56,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Print("======================")
 				}
 			case *linebot.TextMessage:
+				if message.Text == "baby" {
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do()
+				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!!!!!")).Do(); err != nil {
 					log.Print("========Text message error========")
 					log.Print(err)
